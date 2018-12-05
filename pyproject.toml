@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=61.2.0", "wheel", "setuptools_scm[toml]>=3.4.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "transformerz"
+authors = [{name = "KOLANICH"}]
+description = "Just a library implementing composable and stackable processor objects for data."
+readme = "ReadMe.md"
+keywords = ["processors", "json", "cbor", "msgpack", "bson"]
+license = {text = "Unlicense"}
+classifiers = [
+	"Programming Language :: Python",
+	"Programming Language :: Python :: 3",
+	"Development Status :: 4 - Beta",
+	"Environment :: Other Environment",
+	"Intended Audience :: Developers",
+	"License :: Public Domain",
+	"Operating System :: OS Independent",
+	"Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.4"
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://codeberg.org/KOLANICH-libs/transformerz.py"
+
+[project.optional-dependencies]
+lz4 = ["lz4"]  # @ git+https://github.com/python-lz4/python-lz4
+brotli = ["brotli"]  # @ git+https://github.com/google/brotli
+zstd = ["zstandard"]  # @ git+https://github.com/indygreg/python-zstandard
+implode = [
+	"pkblast",  # @ git+https://codeberg.org/implode-compression-impls/pkblast.py
+	"pkimplode"  # @ git+https://codeberg.org/implode-compression-impls/pkimplode.py
+]
+lrzip = ["lrzip"]  # @ git+https://github.com/kata198/python-lrzip
+lzfse = ["pyliblzfse"]  # @ git+https://github.com/ydkhatri/pyliblzfse
+lzfu = ["compressed_rtf"]  # @ git+https://github.com/delimitry/compressed_rtf
+lzham = ["pylzham"]  # @ git+https://github.com/Galaxy1036/pylzham
+lzjb = ["lzjb"]  # @ git+https://github.com/unwind/python-lzjb
+lzo = ["lzo"]  # @ git+https://github.com/jd-boyd/python-lzo
+lzss = ["lzss"]  # @ git+https://github.com/yyogo/pylzss
+ppmd = ["pyppmd"]  # @ git+https://codeberg.org/miurahr/pyppmd
+snappy = ["python-snappy"]  # @ git+https://github.com/andrix/python-snappy
+
+bson = ["pymongo"] # @ git+https://github.com/mongodb/mongo-python-driver
+msgpack = ["msgpack"] # @ git+https://github.com/msgpack/msgpack-python
+yaml = ["ruamel.yaml"] # https://sourceforge.net/p/ruamel-yaml/code/ci/default/tarball
+libintl = ["polib"] # @ git+https://github.com/izimobil/polib/
+neon = ["neon-py"] # @ git+https://github.com/paveldedik/neon-py
+bencode = ["bencode"] 
+cbor = ["cbor2"] # @ git+https://github.com/agronholm/cbor2
+hcl2 = ["python-hcl2"] # @ git+https://github.com/amplify-education/python-hcl2
+rison = ["prison"] # @ git+https://github.com/betodealmeida/python-rison
+ubjson = ["ubjson"] # @ git+https://github.com/Iotic-Labs/py-ubjson
+
+[tool.setuptools]
+zip-safe = true
+include-package-data = false
+
+[tool.setuptools.packages]
+find = {namespaces = false, exclude=["libs", "tests"]}
+
+[tool.setuptools_scm]
